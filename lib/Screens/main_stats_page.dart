@@ -75,12 +75,12 @@ class _MainStatsPageState extends State<MainStatsPage> {
                         StatCard(
                           title: 'Active',
                           value: (globalStats != null
-                              ? formatNumber(globalStats['TotalRecovered'] -
+                              ? formatNumber(globalStats['TotalConfirmed'] -
                                   globalStats['TotalRecovered'] -
                                   globalStats['TotalDeaths'])
                               : '--'),
                           increment: (globalStats != null
-                              ? formatNumber(globalStats['NewRecovered'] -
+                              ? formatNumber(globalStats['NewConfirmed'] -
                                   globalStats['NewRecovered'] -
                                   globalStats['NewDeaths'])
                               : '--'),

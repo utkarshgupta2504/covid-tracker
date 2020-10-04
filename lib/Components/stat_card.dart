@@ -27,7 +27,7 @@ class StatCard extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              increment,
+              increment[0] == '-' ? increment : '+' + increment,
               style: TextStyle(
                 color: Color(textColor.value - 0x55000000),
               ),
