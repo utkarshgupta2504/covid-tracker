@@ -19,3 +19,7 @@ const kConfirmedColor = Color(0xFFF3513A);
 const kActiveColor = Color(0xFF0878F9);
 const kRecoveredColor = Color(0xFF4CA144);
 const kDeceasedColor = Color(0xFF6B747C);
+
+formatNumber(number) => number
+    .toString()
+    .replaceAllMapped(new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
