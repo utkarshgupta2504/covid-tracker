@@ -1,4 +1,5 @@
 import 'package:covid_tracker/Screens/loading_screen.dart';
+import 'package:covid_tracker/Screens/main_stats_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'COVID Tracker',
       theme: ThemeData.dark(),
-      home: LoadingScreen(),
+      home: MainStatsPage(),
     );
   }
 }
