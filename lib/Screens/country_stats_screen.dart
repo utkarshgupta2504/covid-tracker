@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class CountryStatsScreen extends StatelessWidget {
+  CountryStatsScreen({this.stats});
+
+  final stats;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +26,14 @@ class CountryStatsScreen extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'World',
-                    style: TextStyle(fontSize: 25.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        stats['Country'],
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -39,14 +48,22 @@ class CountryStatsScreen extends StatelessWidget {
                       children: <Widget>[
                         StatCard(
                           title: 'Confirmed',
-                          value: '3000000',
-                          increment: '+25666',
+                          value: (stats != null ? formatNumber(stats['TotalConfirmed']) : '--'),
+                          increment: (stats != null ? formatNumber(stats['NewConfirmed']) : '--'),
                           textColor: kConfirmedColor,
                         ),
                         StatCard(
                           title: 'Active',
-                          value: '3000000',
-                          increment: '+25666',
+                          value: (stats != null
+                              ? formatNumber(stats['TotalConfirmed'] -
+                                  stats['TotalRecovered'] -
+                                  stats['TotalDeaths'])
+                              : '--'),
+                          increment: (stats != null
+                              ? formatNumber(stats['NewConfirmed'] -
+                                  stats['NewRecovered'] -
+                                  stats['NewDeaths'])
+                              : '--'),
                           textColor: kActiveColor,
                         ),
                       ],
@@ -56,14 +73,14 @@ class CountryStatsScreen extends StatelessWidget {
                       children: <Widget>[
                         StatCard(
                           title: 'Recovered',
-                          value: '3000000',
-                          increment: '+25666',
+                          value: (stats != null ? formatNumber(stats['TotalRecovered']) : '--'),
+                          increment: (stats != null ? formatNumber(stats['NewRecovered']) : '--'),
                           textColor: kRecoveredColor,
                         ),
                         StatCard(
                           title: 'Deceased',
-                          value: '3000000',
-                          increment: '+25666',
+                          value: (stats != null ? formatNumber(stats['TotalDeaths']) : '--'),
+                          increment: (stats != null ? formatNumber(stats['NewDeaths']) : '--'),
                           textColor: kDeceasedColor,
                         ),
                       ],

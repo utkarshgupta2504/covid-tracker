@@ -57,7 +57,11 @@ class _MainStatsPageState extends State<MainStatsPage> {
                     ),
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => CountryStatsScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CountryStatsScreen(
+                                    stats: countryStat,
+                                  )));
                     },
                   ),
                   TableCell(
@@ -109,9 +113,15 @@ class _MainStatsPageState extends State<MainStatsPage> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'World',
-                    style: TextStyle(fontSize: 25.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        'World',
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                      Text('Click on a country to expand stats'),
+                    ],
                   ),
                 ),
               ),

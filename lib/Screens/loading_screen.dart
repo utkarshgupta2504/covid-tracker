@@ -1,8 +1,5 @@
 import 'package:covid_tracker/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'dart:io';
-
 import 'login_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
